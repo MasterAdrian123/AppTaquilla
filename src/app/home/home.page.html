@@ -13,12 +13,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <swiper-container [loop]="true" [pagination]="true" [slidesPerView]="2">
-    <swiper-slide>swiper 1</swiper-slide>
-    <swiper-slide>swiper 2</swiper-slide>
-    <swiper-slide>swiper 3</swiper-slide>
-    <swiper-slide>swiper 4</swiper-slide>
-    <swiper-slide>swiper 5</swiper-slide>
-    <swiper-slide>swiper 6</swiper-slide>
+  <swiper-container [loop]="true" [pagination]="true">
+    <swiper-slide *ngFor="let variable1 of slides">
+        <h2>{{variable1.title}}</h2>
+        <p>{{variable1.descripcion}}</p>
+        <span> {{variable1.helptext}} </span>
+    </swiper-slide>
   </swiper-container>
 </ion-content>
