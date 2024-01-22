@@ -1,0 +1,7 @@
+{
+  "name": "taquilla",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
