@@ -1,23 +1,2 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <swiper-container [loop]="true" [pagination]="true">
-    <swiper-slide *ngFor="let variable1 of slides">
-        <h2>{{variable1.title}}</h2>
-        <p>{{variable1.descripcion}}</p>
-        <span> {{variable1.helptext}} </span>
-    </swiper-slide>
-  </swiper-container>
-</ion-content>
+PRESIONE EL BOTON
+<ion-button (click)="redireccion()">ir a contenido adicional</ion-button>
