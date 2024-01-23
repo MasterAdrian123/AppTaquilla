@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contenido',
@@ -10,26 +11,20 @@ export class ContenidoPage{
 
   slides =[
     {
-      title: "titulo 1",
-      descripcion:"",
-      image: "",
-      helptext: "",
-      class: ""
+      imagen1:"../assets/imagen/ilove90s.jpg",
+      imagen2:"../assets/imagen/alvarezmejia.jpg",
+      imagen3:"../assets/imagen/slash.jpg",
+      imagen4:"../assets/imagen/losrolling.jpg",
+      
+      link1:"https://www.eticket.co/eventos.aspx?idartista=674",
+      link2:"https://www.eticket.co/eventos.aspx?idartista=665",
+      link3:"https://www.eticket.co/eventos.aspx?idartista=652",
+      link4:"https://www.eticket.co/eventos.aspx?idartista=679",
     },
-    {
-      title: "",
-      descripcion:"descripcion 2",
-      image: "",
-      helptext: "",
-      class:""
-    },
-    {
-      title: "",
-      descripcion:"",
-      image: "",
-      helptext: "texto de ayuda 3",
-      class:""
-    }
+    
   ]
-  constructor() { }
+  constructor(private router: Router) { }
+  redireccion(){
+    this.router.navigateByUrl('/home');
+  }
 }

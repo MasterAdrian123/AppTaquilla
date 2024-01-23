@@ -1,2 +1,52 @@
-PRESIONE EL BOTON
-<ion-button (click)="redireccion()">ir a contenido adicional</ion-button>
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-title style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: 400;">
+      SALON DE EVENTOS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <swiper-container [loop]="true" [pagination]="true">
+    <swiper-slide *ngFor="let variable1 of slides">
+      <div class="contenedor {{variable1.fondo}}  {{variable1.color_letra}} {{variable1.tipo_letra}}">
+        <div class="header-image">
+          <img src="{{variable1.imagen}}" alt="IMAGEN ILUSTRATIVA DEL EVENTO">
+        </div>
+        <div class="informacion">
+          <div class="izquierdo">
+            <h2 class="{{variable1.letra_titulo}}">{{variable1.titulo}}</h2>
+            <h4 class="{{variable1.letra_fecha}}">{{variable1.fecha}}</h4>
+          </div>
+          <div class="derecho {{variable1.letra_descripcion}}">
+            <p [innerHTML]="variable1.descripcion"></p>
+          </div>
+        </div>
+        <div class="footer-message {{variable1.letra_footer}}">
+          <h5 class="">DESLIZA PARA MAS</h5>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  <div class="ion-button">
+    <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
+  </div>
+  <div class="seccion">
+    <p>
+      ¡Descubre la comodidad de gestionar tus boletas en línea con nuestra aplicación dedicada! 📱💳 Olvídate de los papeles y las complicaciones. ¡Es fácil, rápido y seguro! <br>
+
+✨ Beneficios:<br>
+
+Accede a tus boletas desde cualquier lugar.<br>
+Realiza un seguimiento detallado de tus transacciones.<br>
+¡Adiós al desorden! Guarda todas tus boletas en un solo lugar.<br>
+Ambiente ecológico: contribuye a la reducción del papel.<br>
+Descarga nuestra aplicación ahora y simplifica tu experiencia con las boletas. ¡La forma más inteligente de gestionar tus finanzas está en la palma de tu mano! 🚀📲<br></p>
+    
+<div class="ion-button">
+  <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
+</div>
+  <p><br>#BoletasEnLinea #GestiónFinanciera #SimplicidadDigital
+  </p>
+  </div>
+</ion-content>

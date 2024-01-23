@@ -1,23 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-button (click)="redireccion()">
+      volver
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <swiper-container [loop]="true" [pagination]="true">
     <swiper-slide *ngFor="let variable1 of slides">
-        <h2>{{variable1.title}}</h2>
-        <p>{{variable1.descripcion}}</p>
-        <span> {{variable1.helptext}} </span>
+      <div class="image-container">
+        <a href="{{variable1.link1}}">
+          <img src="{{ variable1.imagen1 }}" alt="imagen ilustrativa">
+        </a>
+      </div>
+      <div class="image-container">
+        <a href="{{variable1.link2}}">
+          <img src="{{ variable1.imagen2 }}" alt="imagen ilustrativa">
+        </a>
+      </div>
+      <div class="image-container">
+        <a href="variable1.link3">
+          <img src="{{ variable1.imagen3 }}" alt="imagen ilustrativa">
+        </a>
+      </div>
+      <div class="image-container">
+        <a href="variable1.link4">
+          <img src="{{ variable1.imagen4 }}" alt="imagen ilustrativa">
+        </a>
+      </div>
     </swiper-slide>
   </swiper-container>
 </ion-content>
