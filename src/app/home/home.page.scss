@@ -27,7 +27,7 @@
 }
 .seccion{
   width: 80%;
-  margin: 10% auto;
+  margin: 20% auto;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 41px 0px rgba(0,0,0,0.75);
@@ -53,6 +53,7 @@ swiper-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
   }
 
   .header-image {
@@ -69,7 +70,7 @@ swiper-container{
   .informacion {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 20px;
   }
 
@@ -97,7 +98,7 @@ p{
 .bg-black{
   background-color: black;
 }
-.l-black{
+.l  black{
   color: black;
 }
 .l-white{
