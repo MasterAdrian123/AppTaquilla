@@ -1,0 +1,27 @@
+ion-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+ion-item{
+    margin: 10% auto;
+}
+ion-button{
+    display: flex;
+    margin-left: auto;
+    border-radius: 50%;
+}
+figure{
+    display: flex;
+    justify-content: center;
+}
+main{
+    background-color: red;
+}
+.validation-message{
+    color: red;
+    font-size: 12px;
+    margin-top: 6px;
+}

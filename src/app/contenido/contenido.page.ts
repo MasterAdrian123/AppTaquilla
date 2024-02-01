@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-contenido',
@@ -23,7 +24,12 @@ export class ContenidoPage{
     },
     
   ]
-  constructor(private router: Router) { }
+  constructor(private router: Router, private storage: Storage) { }
+
+  ionViewDidEnter(){
+    this.storage.set('visualizo', true);
+  }
+  
   redireccion(){
     this.router.navigateByUrl('/home');
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {Storage} from '@ionic/storage-angular';
+import { EventsService } from '../services/events.service';
 
 @Component({
   selector: 'app-home',
@@ -66,9 +67,20 @@ export class HomePage {
     },
     
   ]
-  constructor(private router: Router, private storage: Storage) {}
+  eventList: any;
+  constructor(private router: Router, private storage: Storage, private events: EventsService) {
+  }
+  ionViewDidEnter(){
+    this.events.getEvents().then(
+      res => {
+        this.eventList = res;
+        console.log("eventos desde el servidor: ",this.eventList)
+      }
+    )
+    //console.log("local events:  ",this.events.getLocalEvents().events);
+  }
   redireccion(){
+    this.storage.set('visualizo', true);
     this.router.navigateByUrl('/contenido');
-    this.storage.set('mostreLaIntro', true);
   }
 }

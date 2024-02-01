@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar >
+  <ion-toolbar>
     <ion-title style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: 400;">
       SALON DE EVENTOS
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -33,20 +36,56 @@
   </div>
   <div class="seccion">
     <p>
-      ¡Descubre la comodidad de gestionar tus boletas en línea con nuestra aplicación dedicada! 📱💳 Olvídate de los papeles y las complicaciones. ¡Es fácil, rápido y seguro! <br>
+      ¡Descubre la comodidad de gestionar tus boletas en línea con nuestra aplicación dedicada! 📱💳 Olvídate de los
+      papeles y las complicaciones. ¡Es fácil, rápido y seguro! <br>
 
-✨ Beneficios:<br>
+      ✨ Beneficios:<br>
 
-Accede a tus boletas desde cualquier lugar.<br>
-Realiza un seguimiento detallado de tus transacciones.<br>
-¡Adiós al desorden! Guarda todas tus boletas en un solo lugar.<br>
-Ambiente ecológico: contribuye a la reducción del papel.<br>
-Descarga nuestra aplicación ahora y simplifica tu experiencia con las boletas. ¡La forma más inteligente de gestionar tus finanzas está en la palma de tu mano! 🚀📲<br></p>
-    
-<div class="ion-button">
-  <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
-</div>
-  <p><br>#BoletasEnLinea #GestiónFinanciera #SimplicidadDigital
-  </p>
+      Accede a tus boletas desde cualquier lugar.<br>
+      Realiza un seguimiento detallado de tus transacciones.<br>
+      ¡Adiós al desorden! Guarda todas tus boletas en un solo lugar.<br>
+      Ambiente ecológico: contribuye a la reducción del papel.<br>
+      Descarga nuestra aplicación ahora y simplifica tu experiencia con las boletas. ¡La forma más inteligente de
+      gestionar tus finanzas está en la palma de tu mano! 🚀📲<br>
+    </p>
+
+    <div class="ion-button">
+      <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
+    </div>
+    <p>
+      #BoletasEnLinea #GestiónFinanciera #SimplicidadDigital
+    </p>
+  </div>
+  <div class="slides">
+    <div class="container-servidor">
+      <h3> PROXIMOS EVENTOS</h3>
+      <swiper-container [loop]="true" [pagination]="true" [slidesPerView]="2">
+        <swiper-slide *ngFor="let event of eventList"> <!-- separar los slides, estan muy pegados -->
+          <div class="contenedor">
+            <h5>{{event.name}}</h5> <!-- cambiar el font-family y el color de letra -->
+            <div> <!-- quiero probar la imagen como fondo del slide -->
+              <img src="{{event.image}}" alt="imagen ilustrativa">
+              <p>{{event.event_date}}</p> <!-- cambiar el formato de fecha -->
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+  <div class="slides">
+    <div class="container-servidor">
+      <h3> MAS POPULARES</h3>
+      <swiper-container [loop]="true" [pagination]="true" [slidesPerView]="2">
+        <swiper-slide *ngFor="let variable2 of slides"> 
+          <div class="contenedor {{variable2.fondo}}  {{variable2.color_letra}} {{variable2.tipo_letra}}">
+            <div class="">
+              <h2 class="">{{variable2.titulo}}</h2>
+              <img src="{{variable2.imagen}}" alt="IMAGEN ILUSTRATIVA DEL EVENTO">
+              <h4 class="">{{variable2.fecha}}</h4>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
   </div>
 </ion-content>

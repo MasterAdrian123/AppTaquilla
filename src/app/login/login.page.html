@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style=" display: flex; justify-content: space-between;">
+  <figure>
+    <ion-avatar>
+       <img src="../../assets/imagen/usuario-logo.png" alt="icono de usuario">
+    </ion-avatar>
+  </figure>
+  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+    <div class="data">
+      <ion-item>
+        <div>
+          <ion-input
+          type="email"
+          fill="solid"
+          label="Email"
+          labelPlacement="floating"
+          formControlName="email"
+          ngModel
+          email></ion-input>
+        </div>
+        <div class="validation-message">
+          <ng-container *ngFor="let val of validation_message.email">
+
+            <div *ngIf="
+            (loginForm.get('email')?.hasError(val.type) &&
+            loginForm.get('email')?.dirty)">
+            {{val.message}}
+            </div>
+
+          </ng-container>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div>
+          <ion-input
+          type="password"
+          fill="solid"
+          label="Password"
+          labelPlacement="floating"
+          formControlName="password"
+          ngModel
+          password></ion-input>
+        </div>
+        <div class="validation-message">
+          <ng-container *ngFor="let val2 of validation_message.password">
+            <div *ngIf="loginForm.get('password')?.hasError(val2.type) && loginForm.get('password')?.dirty">
+              {{ val2.message }}
+            </div>
+          </ng-container>
+        </div>
+      </ion-item>
+    </div>
+    <ion-button type="submit"  [disabled]="!loginForm.valid">
+      Login
+    </ion-button>
+    <div>
+        <a href="/register">No tengo una Cuenta</a>
+    </div>
+  </form>
+  <div class="validation-message">
+    {{login_message}}
+  </div>
+</ion-content>

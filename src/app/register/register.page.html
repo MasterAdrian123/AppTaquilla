@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+    <ion-buttons>
+      <ion-button (click)="goToLogin()">
+          volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <figure>
+    <ion-avatar>
+       <img src="../../assets/imagen/usuario-logo.png" alt="icono de usuario">
+    </ion-avatar>
+  </figure>
+  <div class="formulario">
+    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+      <ion-item>
+        <ion-input type="email" name="email" label="Email" labelPlacement="floating" placeholder="Enter your Email" formControlName="email"></ion-input>
+      </ion-item>
+      <div class="validation-message">
+        <ng-container *ngFor="let val2 of validation_message.email">
+          <div *ngIf="registerForm.get('email')?.hasError(val2.type) && registerForm.get('email')?.dirty">
+            {{ val2.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-input name="name" label="name" labelPlacement="floating" placeholder="Enter your name" formControlName="name"></ion-input>
+      </ion-item>
+      <div class="validation-message">
+        <ng-container *ngFor="let val2 of validation_message.name">
+          <div *ngIf="registerForm.get('name')?.hasError(val2.type) && registerForm.get('name')?.dirty">
+            {{ val2.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-input name="lastName" label="last name" labelPlacement="floating" placeholder="Enter your last name" formControlName="lastName"></ion-input>
+      </ion-item>
+      <div class="validation-message">
+        <ng-container *ngFor="let val2 of validation_message.lastName">
+          <div *ngIf="registerForm.get('lastName')?.hasError(val2.type) && registerForm.get('lastName')?.dirty">
+            {{ val2.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-input type="password" name="password" label="password" labelPlacement="floating" placeholder="Enter your own password"  formControlName="password"></ion-input>
+      </ion-item>
+      <div class="validation-message">
+        <ng-container *ngFor="let val2 of validation_message.password">
+          <div *ngIf="registerForm.get('password')?.hasError(val2.type) && registerForm.get('password')?.dirty">
+            {{ val2.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-input type="password" name="password2" label="password (again)" labelPlacement="floating" placeholder="repite the password again" formControlName="password2"></ion-input>
+      </ion-item>
+      <div class="validation-message">
+        <ng-container *ngFor="let val2 of validation_message.password2">
+          <div *ngIf="registerForm.get('password2')?.hasError(val2.type) && registerForm.get('password2')?.dirty">
+            {{ val2.message }}
+          </div>
+        </ng-container>
+      </div>
+      <ion-button type="submit"  [disabled]="!registerForm.valid">
+        Login
+      </ion-button>
+    </form>
+    <div class="validation-message">
+      {{registerMessage}}
+    </div>
+  </div>
+</ion-content>
