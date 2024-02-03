@@ -1,5 +1,6 @@
 <ion-split-pane contentId="content">
   <ion-menu contentId="content" side="end">
+
     <ion-header>
       <ion-toolbar>
         <ion-title>MENU</ion-title>
@@ -10,17 +11,21 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
+
+
+    <!-- de aqui para abajo todo lo que visualiza el cliente  -->
     <ion-content>
       <ion-list>
-        <ion-item>
-           HOME
+        <ion-item>  
+          HOME
         </ion-item>
-        <ion-item (click)="logOut">
+        <ion-item (click)="logOut()">
           <ion-icon name="log-out"></ion-icon>
-            cerrar sesion
+            Cerrar Sesion
         </ion-item>
       </ion-list>
     </ion-content>
+
   </ion-menu>
   <ion-router-outlet id="content" main></ion-router-outlet >
 </ion-split-pane>

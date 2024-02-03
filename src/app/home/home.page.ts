@@ -68,19 +68,26 @@ export class HomePage {
     
   ]
   eventList: any;
+  catList: any;
   constructor(private router: Router, private storage: Storage, private events: EventsService) {
   }
   ionViewDidEnter(){
     this.events.getEvents().then(
       res => {
         this.eventList = res;
-        console.log("eventos desde el servidor: ",this.eventList)
+        console.log("eventos desde el servidor: ",this.eventList);
+      }
+    )
+    this.events.getCategories().then(
+      categories =>{
+        this.catList = categories;
+        console.log("categorias del servidor:\n", this.catList);
       }
     )
     //console.log("local events:  ",this.events.getLocalEvents().events);
   }
   redireccion(){
     this.storage.set('visualizo', true);
-    this.router.navigateByUrl('/contenido');
+    this.router.navigateByUrl('/menu/contenido');
   }
 }

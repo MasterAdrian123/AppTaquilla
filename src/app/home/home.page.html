@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header > <!-- buscar colocar el header de color negro y letras blancas, cambiar el font-family -->
   <ion-toolbar>
     <ion-title style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: 400;">
       SALON DE EVENTOS
@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" style="--ion-background-color: rgb(31, 28, 28)">
   <swiper-container [loop]="true" [pagination]="true">
     <swiper-slide *ngFor="let variable1 of slides">
       <div class="contenedor {{variable1.fondo}}  {{variable1.color_letra}} {{variable1.tipo_letra}}">
@@ -31,41 +31,25 @@
       </div>
     </swiper-slide>
   </swiper-container>
-  <div class="ion-button">
-    <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
+  <div>
+    <h3> CATEGORIAS</h3>
+    <swiper-container [loop]="true" [pagination]="true" [slidesPerView]="1">
+      <swiper-slide *ngFor="let categories of catList">
+        <h3>{{categories.id}}</h3>
+      </swiper-slide>
+    </swiper-container>
   </div>
-  <div class="seccion">
-    <p>
-      ¡Descubre la comodidad de gestionar tus boletas en línea con nuestra aplicación dedicada! 📱💳 Olvídate de los
-      papeles y las complicaciones. ¡Es fácil, rápido y seguro! <br>
-
-      ✨ Beneficios:<br>
-
-      Accede a tus boletas desde cualquier lugar.<br>
-      Realiza un seguimiento detallado de tus transacciones.<br>
-      ¡Adiós al desorden! Guarda todas tus boletas en un solo lugar.<br>
-      Ambiente ecológico: contribuye a la reducción del papel.<br>
-      Descarga nuestra aplicación ahora y simplifica tu experiencia con las boletas. ¡La forma más inteligente de
-      gestionar tus finanzas está en la palma de tu mano! 🚀📲<br>
-    </p>
-
-    <div class="ion-button">
-      <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
-    </div>
-    <p>
-      #BoletasEnLinea #GestiónFinanciera #SimplicidadDigital
-    </p>
-  </div>
+  
   <div class="slides">
     <div class="container-servidor">
       <h3> PROXIMOS EVENTOS</h3>
-      <swiper-container [loop]="true" [pagination]="true" [slidesPerView]="2">
+      <swiper-container [loop]="true" [pagination]="true" >
         <swiper-slide *ngFor="let event of eventList"> <!-- separar los slides, estan muy pegados -->
           <div class="contenedor">
-            <h5>{{event.name}}</h5> <!-- cambiar el font-family y el color de letra -->
+            <h5> {{event.name}} </h5> <!-- cambiar el font-family y el color de letra -->
             <div> <!-- quiero probar la imagen como fondo del slide -->
               <img src="{{event.image}}" alt="imagen ilustrativa">
-              <p>{{event.event_date}}</p> <!-- cambiar el formato de fecha -->
+              <p>{{event.event_date | date:'dd/MM/yyyy'}}</p> <!-- cambiar el formato de fecha -->
             </div>
           </div>
         </swiper-slide>
@@ -75,7 +59,7 @@
   <div class="slides">
     <div class="container-servidor">
       <h3> MAS POPULARES</h3>
-      <swiper-container [loop]="true" [pagination]="true" [slidesPerView]="2">
+      <swiper-container [loop]="true" [pagination]="true" >
         <swiper-slide *ngFor="let variable2 of slides"> 
           <div class="contenedor {{variable2.fondo}}  {{variable2.color_letra}} {{variable2.tipo_letra}}">
             <div class="">
@@ -87,5 +71,32 @@
         </swiper-slide>
       </swiper-container>
     </div>
+  </div>
+
+  <div class="ion-button">
+    <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
+  </div>
+
+  <div>
+    <h2>TODOS LOS EVENTOS:</h2>
+    <section *ngFor="let event of eventList">
+      <article>
+        <h3>{{event.name}}</h3>
+        <div class="contenedor">
+          <img src="{{event.image}}" alt="img ilusatrativa">
+        </div>
+      </article>
+    </section>
+    <section *ngFor="let variable2 of slides">
+      <article>
+        <div class="contenedor {{variable2.fondo}}  {{variable2.color_letra}} {{variable2.tipo_letra}}">
+          <div class="">
+            <h2 class="">{{variable2.titulo}}</h2>
+            <img src="{{variable2.imagen}}" alt="IMAGEN ILUSTRATIVA DEL EVENTO">
+            <h4 class="">{{variable2.fecha}}</h4>
+          </div>
+        </div>
+      </article>
+    </section>
   </div>
 </ion-content>
