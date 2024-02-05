@@ -11,29 +11,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <swiper-container [loop]="true" [pagination]="true">
-    <swiper-slide *ngFor="let variable1 of slides">
+<ion-content [fullscreen]="true" style="--ion-background-color: black;">
+    <article *ngFor="let variable1 of slides">
       <div class="image-container">
-        <a href="{{variable1.link1}}">
-          <img src="{{ variable1.imagen1 }}" alt="imagen ilustrativa">
+        <a href="{{variable1.link}}">
+          <img src="{{ variable1.imagen}}" alt="imagen ilustrativa">
         </a>
       </div>
-      <div class="image-container">
-        <a href="{{variable1.link2}}">
-          <img src="{{ variable1.imagen2 }}" alt="imagen ilustrativa">
-        </a>
-      </div>
-      <div class="image-container">
-        <a href="variable1.link3">
-          <img src="{{ variable1.imagen3 }}" alt="imagen ilustrativa">
-        </a>
-      </div>
-      <div class="image-container">
-        <a href="variable1.link4">
-          <img src="{{ variable1.imagen4 }}" alt="imagen ilustrativa">
-        </a>
-      </div>
-    </swiper-slide>
-  </swiper-container>
+    </article>
 </ion-content>

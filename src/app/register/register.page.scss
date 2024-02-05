@@ -1,0 +1,45 @@
+ion-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    --ion-background-color: rgb(233, 233, 233);
+  }
+  ion-item{
+      margin: 10% auto;
+      --ion-background-color: rgba(0, 255, 255, 0);
+  }
+  ion-input{
+      --border-radius: 50%
+  }
+  ion-button{
+      display: flex;
+      margin-left: auto;
+  }
+  figure{
+      display: flex;
+      justify-content: center;
+  }
+  main{
+      background-color: red;
+  }
+  .validation-message{
+      color: rgb(80, 52, 15);
+      font-size: 12px;
+      margin-top: 6px;
+  }
+  .icono{
+      display: flex; justify-content: space-between;
+  }
+  .formulario{
+      width: 96%;
+      margin: 0 2%;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      border-radius: 10px;
+      padding: 5px;
+      background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210611/pngtree-yellow-overlapping-form-background-image_727095.jpg');
+  }
+  a{
+      cursor: help;
+  }

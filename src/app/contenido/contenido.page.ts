@@ -12,15 +12,20 @@ export class ContenidoPage{
 
   slides =[
     {
-      imagen1:"../assets/imagen/ilove90s.jpg",
-      imagen2:"../assets/imagen/alvarezmejia.jpg",
-      imagen3:"../assets/imagen/slash.jpg",
-      imagen4:"../assets/imagen/losrolling.jpg",
-      
-      link1:"https://www.eticket.co/eventos.aspx?idartista=674",
-      link2:"https://www.eticket.co/eventos.aspx?idartista=665",
-      link3:"https://www.eticket.co/eventos.aspx?idartista=652",
-      link4:"https://www.eticket.co/eventos.aspx?idartista=679",
+      imagen:"../assets/imagen/ilove90s.jpg",
+      link:"https://www.eticket.co/eventos.aspx?idartista=674",
+    },
+    {
+      imagen:"../assets/imagen/alvarezmejia.jpg",
+      link:"https://www.eticket.co/eventos.aspx?idartista=665",
+    },
+    {
+      imagen:"../assets/imagen/slash.jpg",
+      link:"https://www.eticket.co/eventos.aspx?idartista=652",
+    },
+    {
+      imagen:"../assets/imagen/losrolling.jpg",
+      link:"https://www.eticket.co/eventos.aspx?idartista=679",
     },
     
   ]

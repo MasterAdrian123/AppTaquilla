@@ -1,6 +1,6 @@
-<ion-header > <!-- buscar colocar el header de color negro y letras blancas, cambiar el font-family -->
+<ion-header> <!-- buscar colocar el header de color negro y letras blancas, cambiar el font-family -->
   <ion-toolbar>
-    <ion-title style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: 400;">
+    <ion-title>
       SALON DE EVENTOS
     </ion-title>
     <ion-buttons slot="end">
@@ -9,47 +9,65 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" style="--ion-background-color: rgb(31, 28, 28)">
-  <swiper-container [loop]="true" [pagination]="true">
+<ion-content [fullscreen]="true">
+  <!-- 
+
+    <swiper-container [loop]="true" [pagination]="true" class="ff-Franklin">
     <swiper-slide *ngFor="let variable1 of slides">
-      <div class="contenedor {{variable1.fondo}}  {{variable1.color_letra}} {{variable1.tipo_letra}}">
+      <div class="contenedor {{variable1.fondo}}  {{variable1.color_letra}}">
         <div class="header-image">
           <img src="{{variable1.imagen}}" alt="IMAGEN ILUSTRATIVA DEL EVENTO">
         </div>
         <div class="informacion">
           <div class="izquierdo">
-            <h2 class="{{variable1.letra_titulo}}">{{variable1.titulo}}</h2>
-            <h4 class="{{variable1.letra_fecha}}">{{variable1.fecha}}</h4>
+            <h2 class="">{{variable1.titulo}}</h2>
+            <h4 class="">{{variable1.fecha}}</h4>
           </div>
-          <div class="derecho {{variable1.letra_descripcion}}">
+          <div class="derecho">
             <p [innerHTML]="variable1.descripcion"></p>
           </div>
         </div>
-        <div class="footer-message {{variable1.letra_footer}}">
+        <div class="footer-message">
           <h5 class="">DESLIZA PARA MAS</h5>
         </div>
       </div>
     </swiper-slide>
   </swiper-container>
-  <div>
-    <h3> CATEGORIAS</h3>
-    <swiper-container [loop]="true" [pagination]="true" [slidesPerView]="1">
-      <swiper-slide *ngFor="let categories of catList">
-        <h3>{{categories.id}}</h3>
+
+  -->
+  <div >
+    <swiper-container [loop]="true" [pagination]="true">
+      <swiper-slide *ngFor="let event2 of eventList" > <!-- box -shadow interno-->
+        <div>
+          <img src="{{event2.image}}" alt="" style="margin: 0; border-radius: 0;">
+        </div>
+        <div style=" color: white; font-size: 20px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; text-align: center; height: auto; width: 100%; background-color: rgba(0, 0, 0, 0.884); position: absolute; top: 7px;">
+          <span>{{event2.name}}</span>
+        </div>
       </swiper-slide>
     </swiper-container>
   </div>
-  
+
+  <div>
+    <h2> CATEGORIAS</h2>
+    <swiper-container [loop]="true" [pagination]="true">
+      <swiper-slide *ngFor="let categories of catList">
+        <h3>{{categories.id}}</h3>
+        <h4>{{categories.name}}</h4>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+
   <div class="slides">
     <div class="container-servidor">
-      <h3> PROXIMOS EVENTOS</h3>
-      <swiper-container [loop]="true" [pagination]="true" >
+      <h2> PROXIMOS EVENTOS</h2>
+      <swiper-container [loop]="true" [pagination]="true">
         <swiper-slide *ngFor="let event of eventList"> <!-- separar los slides, estan muy pegados -->
           <div class="contenedor">
-            <h5> {{event.name}} </h5> <!-- cambiar el font-family y el color de letra -->
+            <h4> {{event.name}} </h4> <!-- cambiar el font-family y el color de letra -->
             <div> <!-- quiero probar la imagen como fondo del slide -->
               <img src="{{event.image}}" alt="imagen ilustrativa">
-              <p>{{event.event_date | date:'dd/MM/yyyy'}}</p> <!-- cambiar el formato de fecha -->
+              <h4>{{event.event_date | date:'dd/MM/yyyy'}}</h4> <!-- cambiar el formato de fecha -->
             </div>
           </div>
         </swiper-slide>
@@ -58,9 +76,9 @@
   </div>
   <div class="slides">
     <div class="container-servidor">
-      <h3> MAS POPULARES</h3>
-      <swiper-container [loop]="true" [pagination]="true" >
-        <swiper-slide *ngFor="let variable2 of slides"> 
+      <h2> MAS POPULARES</h2>
+      <swiper-container [loop]="true" [pagination]="true">
+        <swiper-slide *ngFor="let variable2 of slides">
           <div class="contenedor {{variable2.fondo}}  {{variable2.color_letra}} {{variable2.tipo_letra}}">
             <div class="">
               <h2 class="">{{variable2.titulo}}</h2>
@@ -77,7 +95,7 @@
     <ion-button (click)="redireccion()">CONTINUAR EXPERIENCIA</ion-button>
   </div>
 
-  <div>
+  <div class="slides">
     <h2>TODOS LOS EVENTOS:</h2>
     <section *ngFor="let event of eventList">
       <article>
@@ -88,9 +106,9 @@
       </article>
     </section>
     <section *ngFor="let variable2 of slides">
-      <article>
+      <article style="margin-top: 20px;">
         <div class="contenedor {{variable2.fondo}}  {{variable2.color_letra}} {{variable2.tipo_letra}}">
-          <div class="">
+          <div>
             <h2 class="">{{variable2.titulo}}</h2>
             <img src="{{variable2.imagen}}" alt="IMAGEN ILUSTRATIVA DEL EVENTO">
             <h4 class="">{{variable2.fecha}}</h4>
